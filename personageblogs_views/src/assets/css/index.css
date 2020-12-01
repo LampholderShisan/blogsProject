@@ -1,0 +1,769 @@
+/* 
+@Param clear 清除默认样式
+*/
+
+html,
+body,
+ul,
+li,
+a,p,span,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    user-select: none;
+     
+}
+body{
+    overflow-x:hidden;
+}
+input {
+    outline: none;
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    -o-appearance: none;
+    /* appearance: none; */
+    /*去掉chrome浏览器自带dao的点击input框出zhi现边框情况dao*/
+    /* -webkit-appearance: button; */
+    /*使元素标签看起来像专个按钮样式，意思定义了属按钮样式*/
+    /* -webkit-appearance: none; */
+    /* 去掉按钮样式*/
+    /* border-radius: 0; */
+    /*去掉圆角*/
+    /* background: none; */
+    /* 去掉input的默认背景色 */
+}
+
+
+/* 
+@Param login  登录
+*/
+
+#login {
+    width: 500px;
+    height: 360px;
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* margin-left: -300px;
+    margin-top: -200px; */
+    transform: translateX(-50%) translateY(-50%);
+    /* display: flex;
+    flex-direction:column;
+    align-items: center;
+    flex-wrap: wrap; */
+    border:2px solid #f2f2f2;
+    border-radius: 5px ;
+    box-sizing: border-box;
+    box-shadow: #B8BABC 2px 2px 10px 1px; 
+}
+
+#login #Nav_login {
+    width: 100%;
+    height: 140px;
+    background: #578BFF;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+#login #Nav_login .logo {
+    /* position: absolute; */
+    left: 0;
+    width: 200px;
+    height: 50px;
+    box-sizing: border-box;
+    
+}
+#Nav_login .logo i{ 
+    display: inline-block;   
+    max-height: 100%;
+    color:#fff;
+    font-size: 30px;
+    line-height: 60px;
+    margin-left: 10px;
+}
+#Nav_login .logo span{
+    display: inline-block;
+    vertical-align: 1px;
+    color:#fff;
+    height: 50px;
+    font-size: 25px;
+    line-height: 50px;
+    margin-left:5px
+}
+
+ 
+#Nav_login .featrue {  
+    width: 120px;  
+    height: 50px;
+    display: flex;
+     
+}
+#Nav_login .featrue  div i{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+     
+}
+#Nav_login .featrue i.selected:hover::after{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    display: block;
+    content: "";
+    width: 40px;
+    height: 40px;
+    background:#ffffff;
+    opacity: .3;
+    transition: all .3;
+}
+
+#login #profile{
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 49%;
+    left: 50%;
+    transform: translateX(-50%) ;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#login #profile::after{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #282822;
+    opacity: .3;
+    border-radius: 50%;
+    z-index: -99;
+}
+#login #profile .profile_default{
+    width: auto;
+}
+#login #profile i{
+    display: block;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    color: #12B7F5;
+}
+#login #profile span{
+    display: block;
+    width: 100%;
+    height: 20px;
+    color: #fff;
+    line-height: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+#login #login_sign {
+    margin-top: 54px;
+    width: 100%;
+    height: 150px;
+    /* background: #f0f; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#login #login_sign .Input_text,
+#login #login_sign .Input_pw
+{
+    width: 260px;
+    height: 30px;
+    border-bottom:1px solid #999;
+}
+#login #login_sign .Input_text input{
+    outline: none;
+    background: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+#login #login_sign .Input_text:hover,
+#login #login_sign .Input_pw:hover{
+    border-bottom:1px solid #bbb;
+}
+#login #login_sign .Input_text.selected,
+#login #login_sign .Input_pw.selected{
+    border-bottom: 1px solid #14bbf8 ;
+}
+
+#login #login_sign .Input_text{
+    margin-bottom: 5px;
+}
+#login #login_sign .Input_text i,
+#login #login_sign .Input_pw i{
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    text-align: center;
+    color: #B8BABC;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+     
+}
+#login #login_sign .Input_pw i{
+    
+    font-size: 20px;
+    vertical-align: middle;
+}
+#login #login_sign .Input_text i.selected,
+#login #login_sign .Input_pw i.selected{
+    color:#14bbf8;
+}
+#login #login_sign .Input_text input,
+#login #login_sign .Input_pw input{
+    outline: none;
+    border:none;
+    width: 220px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    background-color:#B8BABC;
+    font-size: 14px;
+    padding-left: 6px;
+    background: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#login #login_sign .Input_ck{
+    width: 260px;
+    height: 35px;
+    /* background:#f40; */
+    font-size:12px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+#login #login_sign .Input_ck input{
+    vertical-align: middle;
+}
+#login #login_sign .Input_ck span{
+    vertical-align: middle;
+    color: #B8BABC;
+}
+#login #login_sign .Input_login{
+    width: 260px;
+    height: 40px;
+    position: relative;
+    box-sizing: border-box;
+   margin-top: 5px;
+     
+}
+#login #login_sign .Input_login  i{
+    position: absolute;
+    height: 46px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    left: 29%;
+    line-height: 46px;
+    margin-right:5px ;
+}
+#login #login_sign .Input_login input{
+    width: 100%;
+    height: 100%;
+    background:#00c3ff;
+    /* -webkit-appearance: none; */
+    /* 去掉按钮样式*/
+    border-radius: 5px;
+    border:none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+#login #login_sign .Input_login input:hover{
+    background-color:  #1FC8FD;
+}
+ 
+#login #Bottom_login{
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    bottom: 0;
+    /* background: #f40; */
+    box-sizing: border-box;
+}
+
+#login #Bottom_login span,
+#login #Bottom_login i{
+    position: absolute;
+     
+    /*  色号    B8BABC;*/
+    color:#CDCFD0;
+    font-size: 14px; 
+    
+}
+#login #Bottom_login span{
+    left: 15px;
+    bottom:10px;
+}
+#login #Bottom_login i{
+    right: 15px;
+    font-size: 24px;
+    bottom: 7px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+
+
+/* 
+ *@Param login_QR_code 二维码登录 
+*/
+
+/* 
+ *@param register   注册
+*/
+ 
+#regist{
+     /* position: relative; */
+      
+}
+#regist #Nav_regist{
+    position: relative;
+    width: 100%;
+    height: 100px;
+
+     
+}
+#regist #Nav_regist .Nav_left{
+    position: fixed;
+    left: 20px;
+    top:20px;
+}
+#regist #Nav_regist .Nav_left i{
+    display: inline-block;
+    font-weight: bold;
+    color:#000;
+    
+}
+#regist #Nav_regist .Nav_left i.icon-letterboxd::before{
+    font-size: 40px;
+    font-weight: bold;
+}
+#regist #Nav_regist .Nav_left span{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    vertical-align: top;
+    
+}
+#regist #Nav_regist .Nav_right{
+    position: fixed;
+    right: 0;
+    top:30px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    box-sizing: border-box;
+    left:70%;
+    white-space: nowrap;
+    z-index: 99;
+}
+
+ 
+/* hover rgba(0,0,0,.902) */
+#regist #Nav_regist .Nav_right .rare_moblie,
+#regist #Nav_regist .Nav_right .Lang,
+#regist #Nav_regist .Nav_right .feedback{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color:  #888;
+} 
+#regist #Nav_regist .Nav_right .rare_moblie  {
+    margin-right: 30px;
+    background: #f40;
+    width: 114px;
+    height: 30px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+#regist #Nav_regist .Nav_right .rare_moblie span{
+
+    font-size: 16px;
+    color: #fff;
+}
+#regist #Nav_regist .Nav_right .Lang .lang_CH{
+        width: 100px;
+        margin-bottom: 10px;
+         
+}
+#regist #Nav_regist .Nav_right .Lang  i{
+    color: #8f8f7f;
+    font-size: 12px;
+}
+#regist #Nav_regist .Nav_right .Lang .Lang_choose{
+    display: none;
+}
+#regist #Nav_regist .Nav_right .Lang .hover{
+    display: block;
+}
+#regist #Nav_regist .Nav_right .Lang_choose{
+    display: block;
+    position: absolute;
+    width: 100px;
+    background: #fff;
+}
+#regist #Nav_regist .Nav_right .Lang_choose  .lang_zh,
+#regist #Nav_regist .Nav_right .Lang_choose  .English{
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    color:#888;
+}
+#regist #Nav_regist .Nav_right .feedback{
+    margin-right: 50px;
+    margin-left: 10px;
+}
+/* 
+ *@Param rare 靓号
+ *
+*/
+#regist #Nav_regist .Nav_right .rare{
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    right: 110px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: #888 1px 1px 5px 1px;
+    display: none;
+}
+#regist #Nav_regist .Nav_right .rare .rare_search{
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+#regist #Nav_regist .Nav_right .rare .rare_search input{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border:none;
+    border-bottom:1px solid #eee;
+    line-height: 50px;
+    padding-left:10px ;
+    font-size: 16px;
+
+}
+#regist #Nav_regist .Nav_right .rare .rare_search i{
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+    border-left:1px  solid #eee;
+    border-bottom:1px  solid #eee;
+    box-sizing: border-box;
+    color: #8f8f7f;
+    text-align: center;
+    line-height: 50px;
+}
+#regist #Nav_regist .Nav_right .rare .rare_choose{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#regist #Nav_regist .Nav_right .rare .rare_choose a{
+    color: #359eff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+/*
+ *@param 卡通制作
+ */
+ 
+ /* 
+ *@Param 账号注册
+ */
+#regist #regist_contariner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+}
+
+#regist_contariner #regist_ID{
+    position: absolute;
+    white-space: nowrap;
+    left: 64%;
+    margin-left: 86px; 
+    /* height: 800px; */
+    transform: translateX(-64%);
+    
+}
+#regist_contariner #regist_ID h1{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 44px;
+    font-weight: 500;
+}
+#regist_contariner #regist_ID .goback{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    background: #12B7F5;
+    vertical-align: middle;
+    margin-left:50px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border:1px solid #12B7F5;
+    box-shadow: #188 1px 1px 5px 0px;
+    color: white;
+     
+}
+#regist_contariner #regist_ID .meet{
+    position: relative;
+    margin-bottom: 30px;
+     
+}
+#regist_contariner #regist_ID .meet h2{
+    display: inline-block;
+    margin-top:20px;
+    font-weight: 500;
+}
+
+#regist_contariner #regist_ID .meet a{
+    position: absolute;
+    color:#12B7F5;
+    font-size: 24px;
+    right: 0;
+    bottom: 0;
+}
+
+#regist_contariner #regist_ID .ID_Account .Input-area{
+    width: 100%;
+    height: 100%;
+}
+.ID_Account .Input-area .Input-area-Error-null p,
+.ID_Account .Input-area .Input-area-Error-list p{
+    display: none;
+    color:#000;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+#regist_contariner #regist_ID .ID_Account .Input-area input{
+    width: 100%;
+    height:50px;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 50px;
+    padding-left:20px ;
+    border:1px solid #888;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    transition: all .2s;
+}
+#regist_contariner #regist_ID .ID_Account .affrim{
+
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose{
+    position: relative;
+    margin-top:30px ;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_area{
+    width: 160px;
+    height: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background:#fff;
+    border:1px solid #888;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_area ._area{
+    position: relative;
+    
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_area span{
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 20px;
+    line-height: 50px;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_area i{
+    position: absolute;
+    right: 10px;
+    top:50%;
+    transform: translateY(-50%);
+    color:#888;
+   
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_select{
+    position: absolute;
+    top:50px;
+    width: 100%;
+    height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_select span{
+    display: block;
+    width: 100%;
+    height: 40px;
+    color:#000;
+    font-size:20px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    background:#fff;
+    
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_select span:hover{
+    background:#eee;
+     
+}
+
+#regist_contariner #regist_ID .ID_Account .mobile_choose ._mobile{
+    width: 320px;
+    height: 50px;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose ._mobile input{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 20px;
+    line-height: 50px;
+    border-radius: 5px;
+    border:1px solid #888;
+}
+#regist_contariner #regist_ID .ID_Account  .mobile_trp{
+    color: #bbb;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    width: 160px;
+    text-align: center;
+}
+ 
+
+#regist_contariner #regist_ID .ID_Account .ID_sign-up{
+    width: 100%;
+    height: 50px;
+    margin:30px 0;
+}
+#regist_contariner #regist_ID .ID_Account .ID_sign-up input{
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    color:#fff;
+    background: #2c79eb;  
+    border: 1px solid #3083ff;
+    border-radius: 5px;
+    line-height: 50px;
+}
+#regist_contariner #regist_ID .ID_Account .ID_sign-up input:hover{
+    background:#3580eb;
+}
+
+/* 服务协议政策 treaty pact */
+#regist_contariner #regist_ID  .treaty{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    position: relative;
+    margin-bottom: 100px;
+    
+}
+#regist_contariner #regist_ID   .treaty .treaty_checkbox{
+    /* position: absolute; */
+    margin-top: 3px;
+    width: 10px;
+    height: 10px;
+    border:2px solid #bbb;
+    vertical-align: middle;
+}
+#regist_contariner #regist_ID   .treaty  .treaty_choose div{
+    height: 20px;
+    font-size: 12px;
+    color:#bbb;
+    line-height: 20px;
+    margin-left: 5px;
+  
+}
+#regist_contariner #regist_ID   .treaty  .treaty_choose div a{
+    color: #55d3fa;
+}
+#regist_contariner #regist_ID   .treaty  .treaty_choose div a:hover{
+    color:#14bbf8
+}
+#regist_contariner #regist_ID   .treaty  i{
+    margin-top: 2px;
+    font-size: 10px;
+    color:#bbb;
+    font-weight: 600px;
+    line-height: 20px;
+    text-align: center;
+    margin-left: 10px;
+}
+#regist_contariner #regist_ID   .treaty  .treaty_choose div a{
+    font-size: 14px;
+    display: none;
+}
+/* copyright 版权 */
+#regist #regist_contariner #regist_ID #copyright{
+    margin:30px
+}
+#regist #regist_contariner #regist_ID  #copyright span{
+     color: #bbb;
+     font-size: 14px;
+     font-weight: 500;
+     transition: all .2s;
+     white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+# personageblogs_admin
+personageblogs_admin/node_modules
+
+# personageblogs_views
+personageblogs_views/.DS_Store
+personageblogs_views/node_modules
+personageblogs_views/dist
+
+# personageblogs_views local env files
+personageblogs_views/.env.local
+personageblogs_views/.env.*.local
+
+# personageblogs_views Log files
+personageblogs_views/npm-debug.log*
+personageblogs_views/yarn-debug.log*
+personageblogs_views/yarn-error.log*
+personageblogs_views/pnpm-debug.log*
+
+# personageblogs_views Editor directories and files
+personageblogs_views/.idea
+personageblogs_views/.vscode
+personageblogs_views/*.suo
+personageblogs_views/*.ntvs*
+personageblogs_views/*.njsproj
+personageblogs_views/*.sln
+personageblogs_views/*.sw?
