@@ -9,14 +9,14 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema
 const userSchema = new Schema({
     name:{type:String,required:true, min:10,max:255},
-    Letmi:{type:Number,min:0,max:1e25},
-    Letpassword:{type:String, min:0,max:1e16},
+    Letmi:{type:Number,min:0,max:1e15},
+    LetmiPassword:{type:String, min:0,max:1e16},
     age:Number,
     sex:{type:String,default:'female'},
     address:{type:String,min:20,max:255},
     mobile:{type:Number,required:true},
     email:String,
-    Lt:{type:Number,required:true,min:0,max:1e15},
+    Lt:{type:String,required:true,min:0,max:1e20},
     delLt:{type:String}
 })
 

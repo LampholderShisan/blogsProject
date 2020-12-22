@@ -191,6 +191,7 @@ input {
     width: 260px;
     height: 30px;
     border-bottom:1px solid #999;
+    position: relative;
 }
 #login #login_sign .Input_text input{
     outline: none;
@@ -208,6 +209,7 @@ input {
 }
 
 #login #login_sign .Input_text{
+     
     margin-bottom: 5px;
 }
 #login #login_sign .Input_text i,
@@ -326,9 +328,218 @@ input {
     font-weight: bold;
     box-sizing: border-box;
 }
+.Input_text .tripText,
+.Input_pw .tripPs{
+    /* display: none; */
+    position: absolute;
+    top:25px;
+    left: -20px;
+    z-index: 1;
+    font-size: 12px;
+    background-color: #fff;
+    border-radius: 5px;
+    border:.5px solid #999;
+    width: 150px;
+    height: 15px;
+    box-shadow: 0 0 3px .3px ;
+    text-align: center;
+    line-height: 15px;
+}
+.Input_pw .tripPs{
+    top:30px;
+    left: 0px;
+}
+.Input_text .tripText::after{
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    /* background-color: #f40; */
+    top:-16px;
+    left: 38px;
+    border-width: 7px  ;
+    border-style: solid;
+    border-color: transparent transparent  #999 transparent;
+    border-radius: 2px;
+}
+.Input_pw .tripPs::after{
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    /* background-color: #f40; */
+    top:-16px;
+    left: 10px;
+    border-width: 7px  ;
+    border-style: solid;
+    border-color: transparent transparent  #999 transparent;
+    border-radius: 2px;
+}
+.Input_text .Textreg{
+    width: 260px;
+}
+.Input_pw .Psreg{
+    width: 200px;
+    height: 30px;
+}
+#login_sign .errTrip{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #eee;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    transition: all 1;
+ 
+}
+/*
+模块还在等代中 
+ */
+ #login_sign .await_module{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background-color: #eee;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    transition: all 1;
+ }
 
 
-
+/*放置加载的小东西*/
+#login_sign  .loading{
+    z-index: 1;
+    position: absolute;
+	width:100%;
+    height: 100%;
+    top:0px;
+    left: 0px;
+    background-color:rgba(0,0,0,0.1);
+	/* border:1px solid #000; */
+	/* float: left; */
+/*	设置盒子的弹性 又叫弹性魔盒*/
+	display: flex;
+/*	水平居中*/
+	justify-content: center;
+/*	竖直居中*/
+	align-items: center;
+}
+#login_sign  .loading .mostor{
+		position: relative;
+		width: 100px;
+		height: 100px;
+/*		border: 1px solid #C82E92;*/
+		margin: 10px;
+		border-radius: 10px; 
+		background: #e55A54;
+		/*文本居中*/
+		display: flex;
+		/*水平居中*/
+		justify-content: center;
+		/*竖直居中*/
+		align-items: center;
+		flex-direction:column;
+		animation: shy 0.6s infinite alternate;
+}
+#login_sign  .loading .mostor::before,
+#login_sign  .loading .mostor::after
+	{
+		content: "";
+		display: block;
+		position: absolute;
+		width: 20%;
+		height: 10px;
+		top:-10px;
+		left: 50%;
+		border-radius: 5px;
+		background-color:#CD75EF;
+		 
+}
+#login_sign  .loading .mostor::before{
+		transform: translateX(-80%) rotate(45deg)
+}
+#login_sign  .loading .mostor::after{
+	transform: translateX(-40%) rotate(-45deg)
+}
+#login_sign  .loading .eye{
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+	background: #fff;
+	border-radius: 50%;
+	/*w文本居中*/
+	display: flex;
+	/*水平居中*/
+	justify-content: center;
+	/*竖直居中*/
+	align-items: center;
+	
+}
+#login_sign  .loading .mostor .eye .Bayll{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #2E5AE8;
+	animation: eyemove 1.6s infinite alternate;
+}
+#login_sign  .loading .Bay{
+	width:32px;
+	height:10%;
+	margin: 10px auto;
+	background:#3741F1;
+	border-radius: 10px;
+}
+/*小怪物上下运动*/
+@keyframes shy{/*form代指@keyframes动画在使元素发生效果的变化的 0% ， to代指100%*/
+	form{
+		top:0;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+	}
+	30%,50%{
+		top:0;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+	}
+	to{
+		top:-50px;
+		box-shadow: 0px 120px 50px rgba(0,0,0,0.2)
+	}
+}
+/*眼睛左右摇动*/
+@keyframes eyemove{
+	0%,
+	10%{
+		transform: translate(50%) rotateY(180deg) rotateX(150deg) rotateZ(45deg);
+	}
+	90%,
+	100%{
+		transform:translateX(-50%) rotateY(-180deg) rotateX(-150deg) rotateZ(45deg)
+	}
+	
+	 
+}
+@keyframes color{
+	0%,30%{
+		background-color:#342CF1;
+		color:#fff;
+	}
+	35%,60%{
+		background-color:#F32FBB;
+		color:#2ED0D3;
+	}
+	65%,100%{
+		background-color:#0DE9F4;
+		color:#FF8943;
+	}
+	
+}
 /* 
  *@Param login_QR_code 二维码登录 
 */
@@ -571,12 +782,14 @@ input {
 }
 .ID_Account .Input-area .Input-area-Error-null p,
 .ID_Account .Input-area .Input-area-Error-list p{
-    display: none;
+    /* display: none; */
     color:#000;
     font-size: 14px;
     height: 30px;
     line-height: 30px;
 }
+
+ 
 #regist_contariner #regist_ID .ID_Account .Input-area input{
     width: 100%;
     height:50px;
@@ -589,6 +802,18 @@ input {
     box-sizing: border-box;
     margin-top: 30px;
     transition: all .2s;
+}
+
+#regist_contariner #regist_ID .ID_Account .Input-area .active{
+    border:1px solid #14bbf8;
+    
+}
+#regist_contariner #regist_ID .ID_Account .Input-area .error_active{
+    border:1px solid #f40;
+    color: #f40;
+}
+#regist_contariner #regist_ID .ID_Account .Input-area p.error_active_p{
+    color: #f40;
 }
 #regist_contariner #regist_ID .ID_Account .affrim{
 
@@ -631,12 +856,13 @@ input {
 }
 #regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_select{
     position: absolute;
+    z-index: 99;
     top:50px;
     width: 100%;
     height: 160px;
     overflow-y: scroll;
     overflow-x: hidden;
-    display: none;
+    /* display: none; */
 }
 #regist_contariner #regist_ID .ID_Account .mobile_choose .mobile_select span{
     display: block;
@@ -669,6 +895,17 @@ input {
     border-radius: 5px;
     border:1px solid #888;
 }
+#regist_contariner #regist_ID .ID_Account .mobile_choose ._mobile input.active{
+    border:1px solid #14bbf8
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose ._mobile input.error_active{
+    border:1px solid #f40;
+    color:#f40;
+}
+#regist_contariner #regist_ID .ID_Account .mobile_choose ._mobile p.error_active_p{
+    color:#f40;
+    font-size: 14px;
+}
 #regist_contariner #regist_ID .ID_Account  .mobile_trp{
     color: #bbb;
     font-size: 14px;
@@ -678,7 +915,13 @@ input {
     text-align: center;
 }
  
-
+#regist_contariner #regist_ID .ID_Account ._mobile .Mobile-Error-null{
+    /* display: none; */
+    color:#000;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
 #regist_contariner #regist_ID .ID_Account .ID_sign-up{
     width: 100%;
     height: 50px;
@@ -755,10 +998,74 @@ input {
 }
 
 
+/* 注册成功返回ID */
+#regist #res_ID{
+    width:360px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #CD75EF;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+}
+#regist #res_ID div{
+    width: 100%;
+}
+#regist #res_ID div h2{
+    display: inline-block;
+    margin-left: 10px;
+    margin-top:-10px;
+}
+#regist #res_ID div span{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 5px;
+    font-size:24px;
+    text-align: center;
+    line-height: 30px;
+    color:#fff;
+    z-index: 1;
+     
+}
+#regist #res_ID div span::after {
+    display: block;
+    content: "";
+    position: absolute;
+    border-top-right-radius: 5px;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    opacity: .5;
+}
+#regist #res_ID div span:hover::after{
+    background-color: #fff;
+    opacity: 0.3;
+}
+#regist #res_ID .letmi_ID{
+    margin-left: -160px;
+    margin-top:-30px;
+    color: #eee;
+    user-select: text;
+    font-size: 26px;
+}
 
+#regist #res_ID button{
+    width: 260px;
+    height: 30px;
+}
 
-
-
+ 
 
 
 

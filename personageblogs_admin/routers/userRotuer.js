@@ -5,26 +5,21 @@
 // 4.exprots router 抛出路由对象
 const express = require('express')
 const userModel = require('../db/Model/PersonageUsers');
-const { ObjectId } = require('bson');
-const { Model } = require('mongoose');
-const { updateMany } = require('../db/Model/PersonageUsers');
-const { isBoolean } = require('util');
-
+const JWT = require('../utils/jwt');
+const { db } = require('../db/Model/PersonageUsers');
+// const JWT =require('jsonwebtoken');
 const router = express.Router();
-
-
-const origin_id = ObjectId()
 /**
  * @param post 127.0.0.1:5555/users/add 用户增加
  */
-router.get('/say', (req, res) => {
-    let { name, Lt, password, ject } = req.query;
+// router.get('/say', (req, res) => {
+//     let { name, Lt, password, ject } = req.query;
 
-    console.log(name, Lt, password)
+//     console.log(name, Lt, password)
 
-    res.end(`${ject}('say 你好呀')`)
-})
- 
+//     res.end(`${ject}('say 你好呀')`)
+// })
+
 router.post('/add', (req, res, next) => {
     let Letmi = Math.floor(Math.random() * 1e10) //(0-1)1
     let Letpassword = null;
@@ -83,7 +78,7 @@ router.post('/update', (req, res, next) => {
             .then((data) => {
                 if (data.length > 0) {
                     console.log(data + "是否有数据")
-                    return userModel.updateMany(
+                    return userModel.update(
                         {
                             $or: [
                                 { _id: id },
@@ -111,12 +106,13 @@ router.post('/update', (req, res, next) => {
                 }
 
             })
-            .then(() => {
-                res.send({ msg: '数据修改成功', err: 0 })
+            .then((data) => {
+                // console.log(data)
+                res.send({ msg: '数据修改成功', data, err: 0 })
 
             })
-            .catch(() => {
-                res.send({ msg: '数据修改失败', err: -3 })
+            .catch((err) => {
+                res.send({ msg: '数据修改失败', err, err: -3 })
             })
     }
 
@@ -150,6 +146,8 @@ router.post('/find', (req, res) => {
             if (data.length > 0) {
                 console.log(data.length)
                 res.send({ msg: '全部数据被检测到一共 ' + data.length + ' 条', data: data, err: 0 })
+            } else {
+                res.send({ msg: "数据未被检测到", err: -5 })
             }
 
         })
@@ -163,14 +161,13 @@ router.post('/find', (req, res) => {
  *
  */
 router.post('/del', (req, res) => {
-    let { id, Lt, mobile, name } = req.body;
+    let { id, Lt, Letmi } = req.body;
     userModel.update(
         {
             $or: [
-                // {_id:id},
-                // {Lt:Lt},
-                // {mobile:mobile}
-                { name: name }
+                { _id: id },
+                { Lt: Lt },
+                { Letmi: Letmi }
             ]
         }, {
         $set: {
@@ -178,13 +175,74 @@ router.post('/del', (req, res) => {
         }
     }
     )
-        .then(() => {
-
-            res.send({ msg: '该数据已被注销', err: 0 })
+        .then((data) => {
+            res.send({ msg: '该数据已被注销', data, err: 0 })
         })
-        .catch(() => {
-            res.send({ msg: '该数据注销失败', err: -6 })
+        .catch((err) => {
+            res.send({ msg: '该数据注销失败', err, err: -6 })
         })
+    // }
 })
 
+/**
+ * @param /user/login 用户登录接口
+ */
+router.post('/login', function (req, res, next) {
+    let { Letmi, LetmiPassword } = req.body.params
+    if (Letmi && LetmiPassword) {
+        userModel.find({ Letmi: Letmi })
+            .then((data) => {
+                if (data.length > 0) {
+                    //方法一：利用session+cookie的模式 跨域就不能使用 
+                    //登录成功之后储存session会话
+                    // req.session.login=true;
+                    // req.session.userLetmi= Letmi;
+                    // console.log('req.session.userLetmi:' + req.session.userLetmi );
+                    // 方法二利用 jwt jsonwebtoken 验证方式
+                    let token = JWT.CreatToken({ login: true, us: Letmi })
+                    res.send({ msg: '数据被检索到', err: 0, token: token, data: data })
+                    console.log("sjd")
+                    console.log(data)
+                } else {
+                    res.send({ msg: '数据未被检索到', err: -2 })
+                }
+            }).catch(err => {
+                if (!err) {
+                    res.send({ msg: '数据未被检索到', err: -9 })
+                } else {
+                    console.log(err)
+                    res.send({ msg: 'token是非法的', err: -999 })
+                }
+            })
+    }
+})
+/**
+ * @param /user/regist 用户注册接口
+ */
+router.post('/regist', (req, res, next) => {
+    let Letmi = Math.floor(Math.random() * 1e10) //(0-1)1
+    let LetmiPassword = null;
+    let delLt = null;
+    let { name, LetmiPassword1, LetmiPassword2, mobile, Lt, id } = req.body.params;
+    if (!name && !LetmiPassword1 && !Letmipassword2 && LetmiPassword1 == LetmiPassword2) {
+        res.send({ msg: '昵称或密码不能为空', err: -1 })
+    } else {
+        LetmiPassword = LetmiPassword1
+    }
+    userModel.find({ $or: [{ _id: id }, { Lt }, { mobile }] })
+        .then(data => {
+            if (data.length > 0) {
+                res.send({ msg: '该用户名的已经存在了，', err: -2 })
+            } else {
+                return userModel.insertMany({ name, Letmi, delLt, LetmiPassword, Lt, mobile })
+            }
+        })
+        .then(data => {
+            console.log(data)
+            res.send({ Letmi, msg: '数据添加成功', err: 0 })
+        }).catch(err => {
+            console.log(err)
+            res.send({ msg: '数据添加失败', err: -3 })
+        })
+})
 module.exports = router;

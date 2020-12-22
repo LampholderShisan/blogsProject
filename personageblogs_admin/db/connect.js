@@ -11,15 +11,16 @@ mongoose.connect(url,{useNewUrlParser: true,useUnifiedTopology: true})
 
 mongoose.connection.once('open',(err)=>{
     if(!err){
-        console.log('mongdb connection succeess')
+        console.log('mongdb connection start succeess')
     }
 })
 // 连接失败
 mongoose.connection.once('close',(err)=>{
     if(!err){
-        console.log("mongdb connection failure ")
+        console.log("mongdb connection start failure ")
     }
 })
+
 
 
 
